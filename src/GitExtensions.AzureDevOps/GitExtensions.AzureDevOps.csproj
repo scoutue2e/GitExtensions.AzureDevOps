@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <VersionPrefix>8.0.0</VersionPrefix>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="GitExtensions.Extensibility" Version="0.3.*" />
+  </ItemGroup>
+
+  <!-- Reference to GitExtensions dlls. -->
+  <ItemGroup>
+    <Reference Include="GitExtUtils" HintPath="$(GitExtensionsPath)\GitExtUtils.dll" />
+    <Reference Include="GitExtensions.Extensibility" HintPath="$(GitExtensionsPath)\GitExtensions.Extensibility.dll" />
+    <Reference Include="GitUI" HintPath="$(GitExtensionsPath)\GitUI.dll" />
+    <Reference Include="GitUIPluginInterfaces" HintPath="$(GitExtensionsPath)\GitUIPluginInterfaces.dll" />
+    <Reference Include="ResourceManager" HintPath="$(GitExtensionsPath)\ResourceManager.dll" />
+    <Reference Include="System.ComponentModel.Composition" HintPath="$(GitExtensionsPath)\System.ComponentModel.Composition.dll" />
+  </ItemGroup>
+  <PropertyGroup>
+    <GitExtensionsReferenceVersion>v5.0</GitExtensionsReferenceVersion>
+    <GitExtensionsDownloadPath>../../references</GitExtensionsDownloadPath>
+  </PropertyGroup>
+
+  <!-- Pack as .nupkg with dependency on GitExtensions.Extensibility -->
+  <PropertyGroup>
+    <NuspecFile>$(MSBuildThisFileDirectory)$(MSBuildProjectName).nuspec</NuspecFile>
+    <Authors>scoutue2e</Authors>
+    <Company>E2E</Company>
+    <Description>A Visual Studio solution and VS code workspace runner.</Description>
+    <PackageProjectUrl>https://github.com/scoutue2e/GitExtensions.AzureDevOps/</PackageProjectUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/scoutue2e/GitExtensions.AzureDevOps/master/assets/icon.png</PackageIconUrl>
+    <PackageTags>scoutue2e GitExtensions</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+  <Target Name="SetPackageProperties" BeforeTargets="GenerateNuspec">
+    <PropertyGroup>
+      <NuspecProperties>
+        id=$(PackageId);
+        version=$(PackageVersion);
+        configuration=$(Configuration);
+        tags=$(PackageTags.Replace(';',' '));
+        projectUrl=$(PackageProjectUrl);
+        iconUrl=$(PackageIconUrl);
+        repositoryUrl=$(RepositoryUrl);
+        repositoryType=$(RepositoryType);
+        repositoryCommit=$(RepositoryCommit);
+        author=$(Authors);
+        copyright=$(Copyright);
+        description=$(Description);
+        targetDir=$(TargetDir);
+      </NuspecProperties>
+    </PropertyGroup>
+  </Target>
+</Project>
