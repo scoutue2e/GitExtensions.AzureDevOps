@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net8.0-windows</TargetFramework>
-    <VersionPrefix>1.0.1</VersionPrefix>
+    <VersionPrefix>1.0.2</VersionPrefix>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <UseWindowsForms>true</UseWindowsForms>
     <PackageReadmeFile>README.md</PackageReadmeFile>
