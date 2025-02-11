@@ -12,7 +12,7 @@ using System.Windows.Input;
 
 namespace GitExtensions.AzureDevOps.UI
 {
-    internal class CreatePullRequestCommand(IGitUICommands _commands) : ICommand
+    internal class ViewListOfPullRequestsCommand(IGitUICommands _commands) : ICommand
     {
         public event EventHandler CanExecuteChanged;
 
@@ -24,8 +24,7 @@ namespace GitExtensions.AzureDevOps.UI
         public void Execute(object parameter)
         {
             string remoteUrl = GitUICommandsService.GetRemoteUrl(_commands);
-            var branch = _commands.Module.GetSelectedBranch();
-            var processUrl = $"{remoteUrl}/pullrequestcreate?sourceRef={HttpUtility.UrlEncode(branch.Trim())}";
+            var processUrl = $"{remoteUrl}/pullrequests?_a=active";
             Process myProcess = new Process();
             myProcess.StartInfo.UseShellExecute = true;
             myProcess.StartInfo.FileName = processUrl;

@@ -30,6 +30,11 @@ namespace GitExtensions.AzureDevOps.UI
                 Text = "Create pull request...",
                 Command = new CreatePullRequestCommand(_commands),
             });
+            DropDown.Items.Add(new ToolStripMenuItem
+            {
+                Text = "View list of pull requests...",
+                Command = new ViewListOfPullRequestsCommand(_commands),
+            });
         }
     }
 }
