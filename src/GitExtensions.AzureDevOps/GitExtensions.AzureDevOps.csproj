@@ -4,9 +4,11 @@
     <VersionPrefix>1.0.1</VersionPrefix>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <UseWindowsForms>true</UseWindowsForms>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="GitExtensions.Extensibility" Version="0.3.*" />
+    <None Include="Docs\README.md" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
   <!-- Reference to GitExtensions dlls. -->
