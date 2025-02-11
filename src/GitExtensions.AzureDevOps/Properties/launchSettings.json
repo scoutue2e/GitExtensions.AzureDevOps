@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "GitExtensions.AzureDevOps": {
+      "commandName": "Executable",
+      "executablePath": "$(GitExtensionsExecutablePath)"
+    }
+  }
+}
