@@ -1,13 +1,7 @@
 ﻿using GitExtensions.AzureDevOps.Services;
 using GitExtensions.Extensibility.Git;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Web;
 using System.Windows.Input;
 
 namespace GitExtensions.AzureDevOps.UI
